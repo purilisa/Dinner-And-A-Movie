@@ -1,19 +1,18 @@
+header {
+  background-color: black;
+  padding: 90px;
+  margin-bottom: 30px;
+  opacity: 70%;
+  height: 100%;
+}
 
-  header {
-    background-color:black;
-    padding: 90px;
-    margin-bottom: 30px;
-    opacity: 70%;
-    height: 100%;
-  }
-  
- #overlay {
+#overlay {
   width: 100%; /* Full width (cover the whole page) */
   height: 100%; /* Full height (cover the whole page) */
   opacity: 70%;
- }
-  
- .footer {
+}
+
+.footer {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -21,9 +20,6 @@
   background-color: black;
   color: white;
   text-align: center;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   margin-top: 20px;
- }
-
- 
- 
+}
