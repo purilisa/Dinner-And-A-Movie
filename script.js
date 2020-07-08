@@ -8,11 +8,12 @@ var settings = {
     "timeout": 0,
     "headers": {
         "api-version": "v200",
-        "Authorization": "Basic A1B2c3D4E5f6H7I8j911M12=",
+        "Authorization": "Basic RE9LVF9YWDptRVZESHp4WGdpU0o=",
         "client": "DOKT",
         "x-api-key": "Ua4fdRniaWe1M9DCQadoa31tN61njAr6JQDel3Y3",
-        "device-datetime": "2020-07-06T12:07:57.296Z",
-        "territory": "US",
+        "device-datetime": "2018-09-14T08:30:17.360Z",
+        "territory": "XX",
+        "geolocation": "-22.0;14.0"
     }
 };
 
