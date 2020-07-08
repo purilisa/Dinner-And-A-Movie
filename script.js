@@ -2,7 +2,12 @@
 //var searchAddress = $("#addressZip").val();
 //var queryURL = "https://developer.movieglu.com/api-index/cinemasnearby/?key=" + key + "&" + searchAddress;
 
-var settings = {
+var latitude = ""
+var longitude = ""
+var thisGeoLocation = ""
+var movieSearch = ""
+
+var filmsNowShowing = {
     "url": "https://api-gate2.movieglu.com/filmsNowShowing/?n=10",
     "method": "GET",
     "timeout": 0,
@@ -12,16 +17,64 @@ var settings = {
         "client": "DOKT",
         "x-api-key": "Ua4fdRniaWe1M9DCQadoa31tN61njAr6JQDel3Y3",
         "device-datetime": "2018-09-14T08:30:17.360Z",
-        "territory": "XX",
-        "geolocation": "-22.0;14.0"
+        "territory": "US",
+        "geolocation": thisGeoLocation
     }
 };
 
 
+var filmLiveSearch = {
+    "url": "https://api-gate2.movieglu.com/filmLiveSearch/?query=Bad&n=5",
+    "method": "GET",
+    "timeout": 0,
+    "headers": {
+        "api-version": "v200",
+        "Authorization": "Basic RE9LVF9YWDptRVZESHp4WGdpU0o=",
+        "client": "DOKT",
+        "x-api-key": "Ua4fdRniaWe1M9DCQadoa31tN61njAr6JQDel3Y3",
+        "device-datetime": "2020-07-07T20:30:17.360Z",
+        "territory": "US",
+        "geolocation": thisGeoLocation
+}};
 
-$.ajax(settings).done(function(response) {
-    console.log(response);
-});
+function getLocation() {
+    navigator.geolocation.getCurrentPosition(getPosition)
+}
+
+function getPosition(position) {
+    latitude = position.coords.latitude
+    longitude = position.coords.longitude
+
+    latitude.toString()
+    longitude.toString()
+
+    thisGeoLocation = latitude + ";" + longitude
+
+    console.log(thisGeoLocation)
+}
+
+
+
+
+getLocation();
+
+
+$("#getmovies").on("click", function() {
+
+    movieSearch = $("#addressZip").val().trim()
+
+    console.log(movieSearch)
+
+        $.ajax(filmLiveSearch).done(function(response) {
+            console.log(response);
+
+
+    // $.ajax(filmsNowShowing).done(function(response) {
+    //     console.log(response);
+    });
+    
+})
+
 
 
 
