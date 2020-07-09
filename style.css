@@ -10,9 +10,16 @@ header {
   width: 100%; /* Full width (cover the whole page) */
   height: 100%; /* Full height (cover the whole page) */
   opacity: 70%;
+<<<<<<< HEAD
+ }
+
+ 
+ .footer {
+=======
 }
 
 .footer {
+>>>>>>> master
   position: fixed;
   left: 0;
   bottom: 0;
@@ -22,4 +29,12 @@ header {
   text-align: center;
   font-family: "Raleway", sans-serif;
   margin-top: 20px;
+<<<<<<< HEAD
+ }
+
+ 
+ 
+ 
+=======
 }
+>>>>>>> master
