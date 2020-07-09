@@ -12,7 +12,8 @@
   height: 100%; /* Full height (cover the whole page) */
   opacity: 70%;
  }
-  
+
+ 
  .footer {
   position: fixed;
   left: 0;
@@ -25,5 +26,6 @@
   margin-top: 20px;
  }
 
+ 
  
  
