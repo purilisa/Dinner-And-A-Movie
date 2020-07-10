@@ -20,16 +20,27 @@
 <body>
     <container>
         <img src="./assets/procasti-dater2.jpg" alt="procrasti-Daters logo">
-        <form>
-            <input type="text" placeholder="Zip" id="addressZip"></input>
-        </form>
     </container>
-    <button type="button" id="getmovies">Get movies</button>
+    <button type="button" id="findplace">Find location</button>
+    <div class="mapcontain">
+        <div id="map">
+        </div>
+    </div>
+    <div>
+        <form>
+            <input type="text" placeholder="Find City" id="cityfield">
+        </form>
+        <button type="button" id="findcity">Find City</button>
+        <button type="button" id="centermap">Center Map</button>
+    </div>
     <!-- Added link to the jQuery Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- link to font awesome -->
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <script src="./script.js"></script>
+    <!-- Google maps library API -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFP0tqM6o9f2FoX3gInG3rF-5nGBZiKc8&libraries=places"></script>
+    <!-- <script src="./script.js"></script> -->
+    <script src="test.js"></script>
 
 </body>
 

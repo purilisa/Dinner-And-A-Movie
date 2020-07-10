@@ -35,7 +35,8 @@ var filmLiveSearch = {
         "device-datetime": "2020-07-07T20:30:17.360Z",
         "territory": "US",
         "geolocation": thisGeoLocation
-}};
+    }
+};
 
 function getLocation() {
     navigator.geolocation.getCurrentPosition(getPosition)

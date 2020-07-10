@@ -12,6 +12,15 @@ header {
   opacity: 70%;
 }
 
+#map {
+  height: 100%;
+}
+
+.mapcontain {
+  height: 500px;
+  width: 500px;
+}
+
 .footer {
   position: fixed;
   left: 0;
