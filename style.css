@@ -1,70 +1,76 @@
-html, body {
-  height:100%;
-  padding: 0;
-  margin: 0;
-  
+html,
+body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
 }
 
-body{
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .wrapper {
-  flex: 1 0 auto;
+    flex: 1 0 auto;
 }
 
-
 .footer {
-  margin-top: auto;
-  /* height: 100px; */
-  padding: 1rem ;
+    margin-top: auto;
+    /* height: 100px; */
+    padding: 1rem;
 }
 
 header {
-  background-color: black;
-  padding: 90px;
-  margin-bottom: 30px;
-  opacity: 70%;
-  height: 100%;
+    background-color: black;
+    padding: 90px;
+    margin-bottom: 30px;
+    opacity: 70%;
+    height: 100%;
 }
 
 .image {
-  width: 100%; /* Full width (cover the whole page) */
-  height: 100%; /* Full height (cover the whole page) */
-  opacity: 70%;
-  z-index: -1;
- }
-
- .navbar-item {
-  width: 150px;
- }
-
-/* .main-content {
-  height: calc(100vh - 80px);
+    width: 100%;
+    /* Full width (cover the whole page) */
+    height: 100%;
+    /* Full height (cover the whole page) */
+    opacity: 70%;
+    z-index: -1;
 }
 
-.hero-foot {
-  background-color: red;
-  width: 100%;
-  height: 80px; */
+.navbar-item {
+    width: 150px;
+}
 
+
+/* .main-content {
+    height: calc(100vh - 80px);
+  }
+  .hero-foot {
+    background-color: red;
+    width: 100%;
+    height: 80px; */
 
 
 /* .footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: black;
-  color: white;
-  text-align: center;
-  font-family: "Raleway", sans-serif;
-  margin-top: 20px;
- } */
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    margin-top: 20px;
+   } */
 
- 
- 
- 
+.activityDisplay {
+    border-style: solid;
+    background-color: pink;
+    font-size: 25px;
+    margin: 10px;
+    border-radius: 5px;
+    border-color: none;
+    display: inline-block;
+    width: 50%;
+}

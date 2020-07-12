@@ -1,32 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>procrasti-Dater</title>
-
     <!-- Added a link to Bulma-->
     <link rel="stylesheet" href="https://www.jsdelivr.com/package/npm/bulma" />
-
     <!-- Added a link to our external stylesheet-->
-
     <link rel="stylesheet" href="./teststyle.css" />
-  </head>
+</head>
 
-  <body>
+<body>
     <div class="mapcontain column" id="right">
-      <div id="map"></div>
+        <div id="map"></div>
     </div>
     <div class="column" id="left">
-      <form>
-        <input type="text" placeholder="Enter City or ZIP" id="cityfield" />
-      </form>
-      <button type="button" id="findcity">Search</button>
-      <button type="button" id="centermap">Center Map</button>
-      <br>
-      <label for="cuisine">Choose a restaurant type</label>
-
-      <select name="foodtype" id="cuisine">
+        <form>
+            <input type="text" placeholder="Enter City or ZIP" id="cityfield" />
+        </form>
+        <button type="button" id="findcity">Search</button>
+        <button type="button" id="centermap">Center Map</button>
+        <br>
+        <label for="cuisine">Choose a restaurant type</label>
+        <select name="foodtype" id="cuisine">
         <option value="bbq">BBQ</option>
         <option value="chinese">Chinese</option>
         <option value="deli">Deli</option>
@@ -35,11 +32,9 @@
         <option value="seafood">Seafood</option>
         <option value="sushi">Sushi</option>
       </select>
-      <br>
-
-      <label for="searchradius">Select search radius (miles)</label>
-
-      <select name="radius" id="searchradius">
+        <br>
+        <label for="searchradius">Select search radius (miles)</label>
+        <select name="radius" id="searchradius">
         <option value="5">5</option>
         <option value="10">10</option>
         <option value="15">15</option>
@@ -47,22 +42,17 @@
         <option value="25">25</option>
         <option value="30">30</option>
       </select>
-      <br>
-
-      <button type="button" id="findrestaurant">Find a restaruant</button>
+        <br>
+        <button type="button" id="findrestaurant">Find a restaruant</button>
     </div>
     <!-- Added link to the jQuery Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- link to font awesome -->
-    <script
-      defer
-      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
-    ></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <!-- Google maps library API -->
-    <script
-      type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFP0tqM6o9f2FoX3gInG3rF-5nGBZiKc8&libraries=places"
-    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFP0tqM6o9f2FoX3gInG3rF-5nGBZiKc8&libraries=places"></script>
     <script src="../script.js"></script>
-  </body>
+</body>
+
 </html>
