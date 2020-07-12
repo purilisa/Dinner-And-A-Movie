@@ -128,7 +128,6 @@ $(document).ready(function() {
     var longitude
     var map;
     var service
-    var infowindow
 
     function initMap() {
         map = new google.maps.Map(document.getElementById("map"), {
@@ -151,10 +150,29 @@ $(document).ready(function() {
         initMap()
     }
 
-    function createMarker(markerLat, markerLng, locName) {
+    function createMarker(markerLat, markerLng, locName, locAddr, locPhone, locRating) {
+        var contentString = '<div class="infoWinMain">' +
+            '<div class="infoWinContent">' +
+            '</div>' +
+            '<h4 class="infoWinHeading">' + locName + '</h4>' +
+            '<div id="bodyContent">' +
+            '<p>Address: ' + locAddr + '</p>' +
+            '<p>Phone #: ' + locPhone + '</p>' +
+            '<p>User rating: ' + locRating + '</p>' +
+            '</div>' +
+            '</div>';
+
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+
         var marker = new google.maps.Marker({
             position: { lat: markerLat, lng: markerLng },
             title: locName
+        });
+
+        marker.addListener('click', function() {
+            infowindow.open(map, marker);
         });
 
         marker.setMap(map);
@@ -164,14 +182,16 @@ $(document).ready(function() {
         var distMiles = $("#searchradius").val()
         var distMeters = distMiles * 1610
         var cuisine = $("#cuisine").val()
-        var currentMapCoords = latitude + "," + longitude
+        var currentMapCoords = map.getCenter()
+        latitude = currentMapCoords.lat()
+        longitude = currentMapCoords.lng()
         var searchLocation = new google.maps.LatLng(latitude, longitude)
         var mapZoom = 12
 
         console.log(distMiles)
         console.log(distMeters)
         console.log(cuisine)
-        console.log(currentMapCoords)
+        console.log(latitude + ", " + longitude)
         console.log(searchLocation)
 
         if (distMiles >= 10) {
@@ -206,6 +226,7 @@ $(document).ready(function() {
             for (var i = 0; i < results.length; i++) {
                 var place = results[i];
                 console.log(place)
+                var placeAddr = place.formatted_address
 
                 var placeDetailId = place.place_id
 
@@ -223,7 +244,9 @@ $(document).ready(function() {
                         var placeLat = placeDetail.geometry.location.lat()
                         var placeLng = placeDetail.geometry.location.lng()
                         var placeName = placeDetail.name
-                        createMarker(placeLat, placeLng, placeName);
+                        var placePhone = placeDetail.formatted_phone_number
+                        var placeRating = placeDetail.rating
+                        createMarker(placeLat, placeLng, placeName, placeAddr, placePhone, placeRating);
                     }
                 }
             }

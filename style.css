@@ -1,203 +1,76 @@
-      /* header {
-            background-color: black;
-            padding: 90px;
-            margin-bottom: 30px;
-            opacity: 70%;
-            height: 100%;
-        }
-        
-        #overlay {
-            width: 100%;
-            Full width (cover the whole page) 
-            height: 100%;
-            Full height (cover the whole page)
-            opacity: 70%;
-        }
-        
-        .footer {
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            background-color: black;
-            color: white;
-            text-align: center;
-            font-family: "Raleway", sans-serif;
-            margin-top: 20px;
-        }
-        
-        .display {
-            text-align: center;
-            font-family: "Raleway", sans-serif;
-            margin-top: 20px;
-        }
-        
-        .dropbtn {
-            background-color: darkred;
-            color: white;
-            font: arial;
-            padding: 16px;
-            padding-right: 50px;
-            padding-left: 50px;
-            font-size: 20px;
-            border: none;
-            cursor: pointer;
-            text-align: center;
-        }
-        
-        .dropbtn:hover,
-        .dropbtn:focus {
-            background-color: violet;
-        }
-        
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #ac6464;
-            min-width: 160px;
-            overflow: auto;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-        
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-        
-        .dropdown a:hover {
-            background-color: rgb(221, 221, 221);
-        }
-        
-        .show {
-            display: block;
-        }
-        
-        .concertDisplay {
-            margin: 25px;
-            padding-left: 10px;
-            padding-top: 5px;
-            background-color: orange;
-            font-size: 25px;
-            border-style: solid;
-            display: none;
-        }
-        
-        .gamingDisplay {
-            margin: 25px;
-            padding-left: 10px;
-            padding-top: 5px;
-            background-color: rgb(0, 255, 42);
-            font-size: 25px;
-            border-style: solid;
-            display: none;
-        }
-        
-        .restaurantDisplay {
-            margin: 25px;
-            padding-left: 10px;
-            padding-top: 5px;
-            background-color: rgb(255, 0, 128);
-            font-size: 25px;
-            border-style: solid;
-            display: none;
-        }
-        
-        .grid-container {
-            display: none;
-            grid-template-columns: auto;
-            grid-gap: 10px;
-            background-color: #2196F3;
-            padding: 10px;
-            width: 50%;
-        }
-         .grid-container>div {
-            background-color: rgba(255, 255, 255, 0.8);
-            margin: 25px;
-            padding-left: 10px;
-            padding-top: 5px;
-            font-size: 25px;
-            border-style: solid;}
-
-        
-        
-        .displayData {
-            font-size: 25px;
-        }
-         */
-      
-      html,
-      body {
-          height: 100%;
-          padding: 0;
-          margin: 0;
-      }
-      
-      body {
-          display: flex;
-          flex-direction: column;
-          min-height: 100vh;
-      }
-      
-      .wrapper {
-          flex: 1 0 auto;
-      }
-      
-      .footer {
-          margin-top: auto;
-          /* height: 100px; */
-          padding: 1rem;
-      }
-      
-      header {
-          background-color: black;
-          padding: 90px;
-          margin-bottom: 30px;
-          opacity: 70%;
-          height: 100%;
-      }
-      
-      .image {
-          width: 100%;
-          /* Full width (cover the whole page) */
-          height: 100%;
-          /* Full height (cover the whole page) */
-          opacity: 70%;
-      }
-      /* .main-content {
-  height: calc(100vh - 80px);
+html,
+body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
 }
 
-.hero-foot {
-  background-color: red;
-  width: 100%;
-  height: 80px; */
-      /* .footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: black;
-  color: white;
-  text-align: center;
-  font-family: "Raleway", sans-serif;
-  margin-top: 20px;
- } */
-      
-      .activityDisplay {
-          border-style: solid;
-          background-color: pink;
-          font-size: 25px;
-          margin: 10px;
-          border-radius: 5px;
-          border-color: none;
-          display: inline-block;
-          width: 50%;
-      }
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.wrapper {
+    flex: 1 0 auto;
+}
+
+.footer {
+    margin-top: auto;
+    /* height: 100px; */
+    padding: 1rem;
+}
+
+header {
+    background-color: black;
+    padding: 90px;
+    margin-bottom: 30px;
+    opacity: 70%;
+    height: 100%;
+}
+
+.image {
+    width: 100%;
+    /* Full width (cover the whole page) */
+    height: 100%;
+    /* Full height (cover the whole page) */
+    opacity: 70%;
+    z-index: -1;
+}
+
+.navbar-item {
+    width: 150px;
+}
+
+
+/* .main-content {
+    height: calc(100vh - 80px);
+  }
+  .hero-foot {
+    background-color: red;
+    width: 100%;
+    height: 80px; */
+
+
+/* .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    margin-top: 20px;
+   } */
+
+.activityDisplay {
+    border-style: solid;
+    background-color: pink;
+    font-size: 25px;
+    margin: 10px;
+    border-radius: 5px;
+    border-color: none;
+    display: inline-block;
+    width: 50%;
+}
