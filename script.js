@@ -39,14 +39,16 @@ $(document).ready(function() {
         var distMiles = $("#searchradius").val()
         var distMeters = distMiles * 1610
         var cuisine = $("#cuisine").val()
-        var currentMapCoords = latitude + "," + longitude
+        var currentMapCoords = map.getCenter()
+        latitude = currentMapCoords.lat()
+        longitude = currentMapCoords.lng()
         var searchLocation = new google.maps.LatLng(latitude,longitude)
         var mapZoom = 12
 
         console.log(distMiles)
         console.log(distMeters)
         console.log(cuisine)
-        console.log(currentMapCoords)
+        console.log(latitude + ", " + longitude)
         console.log(searchLocation)
 
         if (distMiles >= 10) {
