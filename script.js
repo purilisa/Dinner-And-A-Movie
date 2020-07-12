@@ -4,7 +4,6 @@ $(document).ready(function() {
     var longitude
     var map;
     var service
-    // var infowindow
     function initMap() {
         map = new google.maps.Map(document.getElementById("map"), {
             center: {lat: latitude, lng: longitude},
