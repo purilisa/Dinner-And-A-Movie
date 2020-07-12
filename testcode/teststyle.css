@@ -1,8 +1,37 @@
+body {
+  display: flex;
+  flex-direction: row;
+}
+
+#left {
+    order: 1;
+}
+
+#right {
+    order: 2;
+}
+
 #map {
-height: 100%;
+  height: 100%;
 }
 
 .mapcontain {
-height: 500px;
-width: 650px;
+  height: 500px;
+  width: 650px;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 1rem;
+}
+
+form,
+label,
+select {
+  padding: 5px;
+}
+
+#cityfield {
+    margin-left: 0px;
 }
