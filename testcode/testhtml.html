@@ -4,24 +4,20 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>procrasti-Dater</title>>
+    <title>procrasti-Dater</title>
 
     <!-- Added a link to Bulma-->
     <link rel="stylesheet" href="https://www.jsdelivr.com/package/npm/bulma">
 
     <!-- Added a link to our external stylesheet-->
 
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./teststyle.css">
 
 
 
 </head>
 
 <body>
-    <container>
-        <img src="./assets/procasti-dater2.jpg" alt="procrasti-Daters logo">
-    </container>
-    <button type="button" id="findplace">Find location</button>
     <div class="mapcontain">
         <div id="map">
         </div>
@@ -46,6 +42,19 @@
             <option value="sushi">Sushi</option>
 
         </select>
+
+        <label for="searchradius">Select search radius (miles)</label>
+
+        <select name="radius" id="searchradius">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="25">25</option>
+            <option value="30">30</option>
+        </select>
+
+        <button type="button" id="findrestaurant">Find a restaruant</button>
     </div>
     <!-- Added link to the jQuery Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -53,10 +62,8 @@
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <!-- Google maps library API -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFP0tqM6o9f2FoX3gInG3rF-5nGBZiKc8&libraries=places"></script>
-    <script src="./script.js"></script>
+    <script src="../script.js"></script>
 
 </body>
-
-
 
 </html>
