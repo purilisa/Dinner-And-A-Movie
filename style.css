@@ -190,3 +190,14 @@
   font-family: "Raleway", sans-serif;
   margin-top: 20px;
  } */
+      
+      .activityDisplay {
+          border-style: solid;
+          background-color: pink;
+          font-size: 25px;
+          margin: 10px;
+          border-radius: 5px;
+          border-color: none;
+          display: inline-block;
+          width: 50%;
+      }

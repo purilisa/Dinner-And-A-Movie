@@ -122,50 +122,6 @@
 
 $(document).ready(function() {
 
-    function searchActivity() {
-        var containerD = $(".display");
-        var key = "RV4NvAwbBzuZbhVQwIFhqOZ3fZehiGIP";
-        var fromDate = "2020-07-11"; //$("#startDate").val();
-        var toDate = "2020-12-11"; //$("#endDate").val();
-        var citySearch = "Richmond" //$("#addressCity").val();
-        var state = "VA";
-        var queryURL = url = "https://app.ticketmaster.com/discovery/v2/events.json?&apikey=" + key + "&city=" + citySearch + "&startDateTime=" + fromDate + "T14:00:00Z" + "&endDateTime=" + toDate + "T14:00:00Z";
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        }).then(function(response) {
-
-            // Printing the entire object to console
-            console.log(response);
-            var eventArray = response._embedded.events;
-            jQuery.each(eventArray, function(index, val) {
-                var eventName = $("<h1>").text("EventName: " + val.name);
-                var artistURL = $("<a>").attr("href", val.url).text(val.url); //.append(eventName);
-                var upcomingEvents = $("<h2>").text("Start Date: " + val.dates.start.localDate);
-                var long = $("<h2>").text("Long: " + val._embedded.venues[0].location.longitude);
-                var lat = $("<h2>").text("lat: " + val._embedded.venues[0].location.latitude);
-
-                // Empty the contents of the artist-div, append the new artist content
-                $(containerD).empty();
-                $(containerD).append(eventName, artistURL, upcomingEvents, long, lat);
-
-
-            });
-        });
-    }
-
-
-
-
-    $("#searchEvent").on("click", function(event) {
-        // Preventing the button from trying to submit the form
-        event.preventDefault();
-        // Storing the artist name
-        //var inputArtist = $("#artist-input").val().trim();
-
-        // Running the searchBandsInTown function(passing in the artist as an argument)
-        searchActivity();
-    });
 
 
     var latitude
@@ -301,8 +257,8 @@ $(document).ready(function() {
 
             latitude = response.results[0].geometry.location.lat
             longitude = response.results[0].geometry.location.lng
-            console.log(latitude)
-            console.log(longitude)
+            console.log("latitute" + latitude)
+            console.log("longitude" + longitude)
 
             initMap()
         })
@@ -310,8 +266,63 @@ $(document).ready(function() {
 
     $("#findrestaurant").on("click", function(event) {
         event.preventDefault()
-        findDate()
+        findDate();
+        searchActivity();
     })
+
+
+
+
+    function searchActivity() {
+        var containerD = $(".activityDisplay");
+        var key = "RV4NvAwbBzuZbhVQwIFhqOZ3fZehiGIP";
+        var fromDate = moment().format("YYYY-MM-DD");
+        var toDate = moment("12-31-2020").format("YYYY-MM-DD");
+        var citySearch = "Richmond";
+        var state = "VA";
+
+        console.log(queryURL);
+        var latlong = latitude + "," + longitude;
+        console.log("latlong" + latlong);
+        console.log(moment("12-31-2020").format("YYYY-MM-DD"));
+        var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?&apikey=" + key + "&radius=5" + "&latlong=" + latlong + "&startDateTime=" + fromDate + "T14:00:00Z" + "&endDateTime=" + toDate + "T14:00:00Z";
+        console.log(queryURL);
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function(response) {
+
+            // Printing the entire object to console
+            console.log(response);
+            var eventArray = response._embedded.events;
+            var activityContainer = $("<div>");
+            jQuery.each(eventArray, function(index, val) {
+                var eventName = $("<h1>").text("EventName: " + val.name);
+                var artistURL = $("<a>").attr("href", val.url).text(val.url); //.append(eventName);
+                var upcomingEvents = $("<h2>").text("Start Date: " + val.dates.start.localDate);
+                var long = val._embedded.venues[0].location.longitude // $("<h2>").text("Long: " + val._embedded.venues[0].location.longitude);
+                var lat = val._embedded.venues[0].location.latitude //$("<h2>").text("lat: " + val._embedded.venues[0].location.latitude);
+                var venue = $("<h2>").text("Long: " + val._embedded.venues[0].name);
+                // Empty the contents of the artist-div, append the new artist content
+                // $(containerD).empty();
+                $(containerD).append(activityContainer);
+                $(activityContainer).append(eventName, artistURL, upcomingEvents, venue);
+
+
+            });
+        });
+    }
+
+
+    // $("#searchEvent").on("click", function(event) {
+    //     // Preventing the button from trying to submit the form
+    //     event.preventDefault();
+    //     // Storing the artist name
+    //     //var inputArtist = $("#artist-input").val().trim();
+
+    //     // Running the searchBandsInTown function(passing in the artist as an argument)
+    //     searchActivity();
+    // });
 
 
 });
