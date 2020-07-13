@@ -36,57 +36,28 @@
         <button type="button" class="button is-info" id="findcity">Search</button>
         <button type="button" class="button is-info" id="centermap">Center Map</button>
         <br>
-        <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link" id="cuisine">
-                Cuisine
-            </a>
-            <div class="navbar-dropdown">
-                <a class="navbar-item">
-                    Mexican
-                </a>
-                <a class="navbar-item">
-                    Thai
-                </a>
-                <a class="navbar-item">
-                    Seafood
-                </a>
-                <a class="navbar-item">
-                    Burgers
-                </a>
-                <a class="navbar-item">
-                    Mongolian Grill
-                </a>
-                <a class="navbar-item">
-                    Italian
-                </a>
-                <hr class="navbar-divider">
-                <a class="navbar-item">
-                    Report an issue
-                </a>
-            </div>
-        </div>
-        <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link" id="radius">
-                Radius (mi)
-            </a>
-            <div class="navbar-dropdown">
-                <a class="navbar-item">
-                    5
-                </a>
-                <a class="navbar-item">
-                    10
-                </a>
-                <a class="navbar-item">
-                    15
-                </a>
-                <a class="navbar-item">
-                    25
-                </a>
-                <a class="navbar-item">
-                    50
-                </a>
-            </div>
-        </div>
+        <label for="cuisine">Choose a restaurant type</label>
+        <select name="foodtype" id="cuisine">
+            <option value="bbq">BBQ</option>
+            <option value="burgers">Burgers</option>
+            <option value="chinese">Chinese</option>
+            <option value="deli">Deli</option>
+            <option value="italian">Italian</option>
+            <option value="mexican">Mexican</option>
+            <option value="seafood">Seafood</option>
+            <option value="sushi">Sushi</option>
+            <option value="thai">Thai</option>
+      </select>
+      <br>
+        <label for="searchradius">Select search radius (miles)</label>
+        <select name="radius" id="searchradius">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="25">25</option>
+            <option value="30">30</option>
+        </select>
         <br>
         <button type="button" class="button is-info" id="findrestaurant">Find a restaruant</button>
         <div class="mapcontain column" id="right">

@@ -78,6 +78,8 @@ button {
 .mapcontain {
     height: 500px;
     width: 650px;
+    margin-top: 25px;
+    margin-bottom: 25px;
   }
  
   #map {
