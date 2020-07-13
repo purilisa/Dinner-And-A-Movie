@@ -13,77 +13,87 @@
 
 <body>
     <div class="wrapper">
-        <div>
-            <section class="hero   is-black ">
-                <div class="container main-content">
-                    <figure class="image is-128x128">
-                        <img src="assets/procasti-white-letters.png">
-                    </figure>
-                </div>
-            </section>
-        </div>
-        <div id="nav-contain">
+        <section class="hero   is-black ">
+            <div class="container main-content">
+                <figure class="image is-128x128">
+                    <img src="assets/procasti-white-letters.png">
+                </figure>
+            </div>
+        </section>
+        <div id="left">
+            <div id="nav-contain">
             <nav class="navbar is-black" role="navigation" aria-label="main navigation">
                 <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                 </a>
-        </div>
-        <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link">
-           Cuisine
-          </a>
-            <div class="navbar-dropdown">
-                <a class="navbar-item">
-              Food 1
-            </a>
-                <a class="navbar-item">
-              Food 2
-            </a>
-                <a class="navbar-item">
-              Food 3
-            </a>
-                <hr class="navbar-divider">
-                <a class="navbar-item">
-              Report an issue
-            </a>
             </div>
         </div>
-    </div>
-    <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link ">
-         Activity
-        </a>
-        <div class="navbar-dropdown">
-            <a class="navbar-item">
-            Activity 1
-          </a>
-            <a class="navbar-item">
-            Activity 2
-          </a>
-            <a class="navbar-item">
-            Activity3
-          </a>
-            <hr class="navbar-divider">
-            <a class="navbar-item">
-            Report an issue
-          </a>
+        <form>
+            <input type="text" placeholder="Enter City or ZIP" class="field-body" id="cityfield" />
+        </form>
+        <button type="button" class="button is-info" id="findcity">Search</button>
+        <button type="button" class="button is-info" id="centermap">Center Map</button>
+        <br>
+        <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link" id="cuisine">
+                Cuisine
+            </a>
+            <div class="navbar-dropdown">
+                <a class="navbar-item">
+                    Mexican
+                </a>
+                <a class="navbar-item">
+                    Thai
+                </a>
+                <a class="navbar-item">
+                    Seafood
+                </a>
+                <a class="navbar-item">
+                    Burgers
+                </a>
+                <a class="navbar-item">
+                    Mongolian Grill
+                </a>
+                <a class="navbar-item">
+                    Italian
+                </a>
+                <hr class="navbar-divider">
+                <a class="navbar-item">
+                    Report an issue
+                </a>
+            </div>
         </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link" id="radius">
+                Radius (mi)
+            </a>
+            <div class="navbar-dropdown">
+                <a class="navbar-item">
+                    5
+                </a>
+                <a class="navbar-item">
+                    10
+                </a>
+                <a class="navbar-item">
+                    15
+                </a>
+                <a class="navbar-item">
+                    25
+                </a>
+                <a class="navbar-item">
+                    50
+                </a>
+            </div>
+        </div>
+        <br>
+        <button type="button" class="button is-info" id="findrestaurant">Find a restaruant</button>
     </div>
     </div>
     </nav>
     </div>
-    <!-- <section class="hero has-background-black is-medium">
-    <div class="hero-body has-text-centered">
-      <div class="container">
-        <figure class="image is-128x128">
-          <img src="assets/procasti-dater (1).png">
-        </figure>
-      </div>
-    </div>
-</section> -->
-    <div>
+    <!-- <div>
         <div>
             <section class>
                 <div class="container">
@@ -93,7 +103,7 @@
                 </div>
             </section>
         </div>
-    </div>
+    </div> -->
     </div>
     <footer class="footer has-background-black">
         <div class="content has-text-centered">
@@ -102,7 +112,7 @@
             </p>
         </div>
     </footer>
-    <!-- <section>
+    <section>
     <footer class="hero-foot has-background-black">
       <div class="content has-text-centered">
         <p>
@@ -110,11 +120,12 @@
         </p>
       </div>
     </footer> 
-</section> -->
+</section>
     <!-- Added link to the jQuery Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- link to font awesome -->
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFP0tqM6o9f2FoX3gInG3rF-5nGBZiKc8&libraries=places"></script>
     <script src="./script.js"></script>
 </body>
 
