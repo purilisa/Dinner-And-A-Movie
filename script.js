@@ -128,6 +128,8 @@ $(document).ready(function() {
     var longitude
     var map;
     var service
+    var eventLat
+    var eventLng
 
     function initMap() {
         map = new google.maps.Map(document.getElementById("map"), {
@@ -178,6 +180,37 @@ $(document).ready(function() {
         marker.setMap(map);
     }
 
+    function createMarkerEvent(markerLat, markerLng, locName, locVen, locUrl, locUpEvent) {
+        var contentString = '<div class="infoWinMain">' +
+            '<div class="infoWinContent">' +
+            '</div>' +
+            '<h4 class="infoWinHeading">Event name: ' + locName + '</h4>' +
+            '<div id="bodyContent">' +
+            '<p>Venue: ' + locVen + '</p>' +
+            '<p>Website: ' + locUrl + '</p>' +
+            '<p>Upcoming events: ' + locUpEvent + '</p>' +
+            '</div>' +
+            '</div>';
+
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+        var iconBase = 'https://maps.google.com/mapfiles/kml/paddle/';
+
+        var marker = new google.maps.Marker({
+            position: { lat: markerLat, lng: markerLng },
+            icon: iconBase + 'purple-stars.png',
+            title: locName
+        });
+
+        marker.addListener('click', function() {
+            infowindow.open(map, marker);
+        });
+
+        marker.setMap(map);
+    }
+
+
     function findDate() {
         var distMiles = $("#searchradius").val()
         var distMeters = distMiles * 1610
@@ -187,12 +220,6 @@ $(document).ready(function() {
         longitude = currentMapCoords.lng()
         var searchLocation = new google.maps.LatLng(latitude, longitude)
         var mapZoom = 12
-
-        console.log(distMiles)
-        console.log(distMeters)
-        console.log(cuisine)
-        console.log(latitude + ", " + longitude)
-        console.log(searchLocation)
 
         if (distMiles >= 10) {
             mapZoom = 10
@@ -219,6 +246,50 @@ $(document).ready(function() {
 
         service = new google.maps.places.PlacesService(map);
         service.textSearch(request, callback);
+
+        // Ticketmaster API Call
+        var key = "RV4NvAwbBzuZbhVQwIFhqOZ3fZehiGIP";
+        var fromDate = moment().format("YYYY-MM-DD");
+        var toDate = moment("12-31-2020").format("YYYY-MM-DD");
+
+        console.log(queryURL);
+        var latlong = latitude + "," + longitude;
+        console.log("latlong" + latlong);
+        console.log(moment("12-31-2020").format("YYYY-MM-DD"));
+        var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?&apikey=" + key + "&radius=30" + "&latlong=" + latlong + "&startDateTime=" + fromDate + "T14:00:00Z" + "&endDateTime=" + toDate + "T14:00:00Z";
+        console.log(queryURL);
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function(response) {
+
+            // Printing the entire object to console
+            console.log(response);
+            var eventArray = response._embedded.events;
+            jQuery.each(eventArray, function(index, val) {
+                var eventName = val.name
+                var artistURL = val.url
+                var upcomingEvents = val.dates.start.localDate
+                var eventLngStg = val._embedded.venues[0].location.longitude
+                var eventLng = parseFloat(eventLngStg)
+                var eventLatStg = val._embedded.venues[0].location.latitude
+                var eventLat = parseFloat(eventLatStg)
+                var venue = val._embedded.venues[0].name
+
+                createMarkerEvent(eventLat, eventLng, eventName, venue, artistURL, upcomingEvents)
+
+                // console.log(eventName)
+                // console.log(artistURL)
+                // console.log(upcomingEvents)
+                // console.log(venue)
+                // console.log("Latitude: " + eventLat)
+                // console.log("Longitude: " + eventLng)
+
+
+            });
+        });
+
+        
     }
 
     function callback(results, status) {
@@ -290,51 +361,56 @@ $(document).ready(function() {
     $("#findrestaurant").on("click", function(event) {
         event.preventDefault()
         findDate();
-        searchActivity();
+        // searchActivity();
     })
 
 
 
 
-    function searchActivity() {
-        var containerD = $(".activityDisplay");
-        var key = "RV4NvAwbBzuZbhVQwIFhqOZ3fZehiGIP";
-        var fromDate = moment().format("YYYY-MM-DD");
-        var toDate = moment("12-31-2020").format("YYYY-MM-DD");
-        var citySearch = "Richmond";
-        var state = "VA";
+    // function searchActivity() {
+    //     var key = "RV4NvAwbBzuZbhVQwIFhqOZ3fZehiGIP";
+    //     var fromDate = moment().format("YYYY-MM-DD");
+    //     var toDate = moment("12-31-2020").format("YYYY-MM-DD");
 
-        console.log(queryURL);
-        var latlong = latitude + "," + longitude;
-        console.log("latlong" + latlong);
-        console.log(moment("12-31-2020").format("YYYY-MM-DD"));
-        var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?&apikey=" + key + "&radius=5" + "&latlong=" + latlong + "&startDateTime=" + fromDate + "T14:00:00Z" + "&endDateTime=" + toDate + "T14:00:00Z";
-        console.log(queryURL);
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        }).then(function(response) {
+    //     console.log(queryURL);
+    //     var latlong = latitude + "," + longitude;
+    //     console.log("latlong" + latlong);
+    //     console.log(moment("12-31-2020").format("YYYY-MM-DD"));
+    //     var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?&apikey=" + key + "&radius=30" + "&latlong=" + latlong + "&startDateTime=" + fromDate + "T14:00:00Z" + "&endDateTime=" + toDate + "T14:00:00Z";
+    //     console.log(queryURL);
+    //     $.ajax({
+    //         url: queryURL,
+    //         method: "GET"
+    //     }).then(function(response) {
 
-            // Printing the entire object to console
-            console.log(response);
-            var eventArray = response._embedded.events;
-            var activityContainer = $("<div>");
-            jQuery.each(eventArray, function(index, val) {
-                var eventName = $("<h1>").text("EventName: " + val.name);
-                var artistURL = $("<a>").attr("href", val.url).text(val.url); //.append(eventName);
-                var upcomingEvents = $("<h2>").text("Start Date: " + val.dates.start.localDate);
-                var long = val._embedded.venues[0].location.longitude // $("<h2>").text("Long: " + val._embedded.venues[0].location.longitude);
-                var lat = val._embedded.venues[0].location.latitude //$("<h2>").text("lat: " + val._embedded.venues[0].location.latitude);
-                var venue = $("<h2>").text("Long: " + val._embedded.venues[0].name);
-                // Empty the contents of the artist-div, append the new artist content
-                // $(containerD).empty();
-                $(containerD).append(activityContainer);
-                $(activityContainer).append(eventName, artistURL, upcomingEvents, venue);
+    //         // Printing the entire object to console
+    //         console.log(response);
+    //         var eventArray = response._embedded.events;
+    //         jQuery.each(eventArray, function(index, val) {
+    //             var eventName = val.name
+    //             var artistURL = val.url
+    //             var upcomingEvents = val.dates.start.localDate
+    //             var eventLng = val._embedded.venues[0].location.longitude // $("<h2>").text("Long: " + val._embedded.venues[0].location.longitude);
+    //             var eventLat = val._embedded.venues[0].location.latitude //$("<h2>").text("lat: " + val._embedded.venues[0].location.latitude);
+    //             var venue = val._embedded.venues[0].name
+
+    //             console.log(eventName)
+    //             console.log(artistURL)
+    //             console.log(upcomingEvents)
+    //             console.log(venue)
+    //             console.log("Latitude: " + eventLat)
+    //             console.log("Longitude: " + eventLng)
 
 
-            });
-        });
-    }
+    //             // Empty the contents of the artist-div, append the new artist content
+    //             // $(containerD).empty();
+    //             // $(containerD).append(activityContainer);
+    //             // $(activityContainer).append(eventName, artistURL, upcomingEvents, venue);
+
+
+    //         });
+    //     });
+    // }
 
 
     // $("#searchEvent").on("click", function(event) {
