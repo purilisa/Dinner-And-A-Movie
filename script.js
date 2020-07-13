@@ -152,13 +152,12 @@ $(document).ready(function() {
         initMap()
     }
 
-    function createMarker(markerLat, markerLng, locName, locAddr, locPhone, locRating) {
+    function createMarker(markerLat, markerLng, locName, locPhone, locRating) {
         var contentString = '<div class="infoWinMain">' +
             '<div class="infoWinContent">' +
             '</div>' +
             '<h4 class="infoWinHeading">' + locName + '</h4>' +
             '<div id="bodyContent">' +
-            '<p>Address: ' + locAddr + '</p>' +
             '<p>Phone #: ' + locPhone + '</p>' +
             '<p>User rating: ' + locRating + '</p>' +
             '</div>' +
@@ -220,6 +219,9 @@ $(document).ready(function() {
         longitude = currentMapCoords.lng()
         var searchLocation = new google.maps.LatLng(latitude, longitude)
         var mapZoom = 12
+        
+        console.log(latitude)
+        console.log(longitude)
 
         if (distMiles >= 10) {
             mapZoom = 10
@@ -239,7 +241,7 @@ $(document).ready(function() {
 
         var request = {
             location: searchLocation,
-            radius: distMeters.toString(),
+            radius: distMeters,
             type: ["restaruant"],
             query: cuisine.toString()
         };
@@ -297,7 +299,6 @@ $(document).ready(function() {
             for (var i = 0; i < results.length; i++) {
                 var place = results[i];
                 console.log(place)
-                var placeAddr = place.formatted_address
 
                 var placeDetailId = place.place_id
 
@@ -317,7 +318,7 @@ $(document).ready(function() {
                         var placeName = placeDetail.name
                         var placePhone = placeDetail.formatted_phone_number
                         var placeRating = placeDetail.rating
-                        createMarker(placeLat, placeLng, placeName, placeAddr, placePhone, placeRating);
+                        createMarker(placeLat, placeLng, placeName, placePhone, placeRating);
                     }
                 }
             }
