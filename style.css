@@ -38,6 +38,34 @@ header {
     z-index: -1;
 }
 
+#cityfield {
+    margin-bottom: 1rem;
+}
+
+.card {
+    padding: 1rem;
+    width: 25%;
+    color: #706377;
+    margin-left: 12px;
+}
+
+button {
+    background-color: #706377;
+}
+
+.main {
+    background-image: url("assets/prague-at-night-1080x720.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 1rem;
+}
+
+.logo {
+    width: 35%;
+    margin: auto;
+    display: block;
+}
+
 .navbar-item {
     width: 150px;
 }
@@ -52,7 +80,7 @@ header {
     text-align: center;
     font-family: "Raleway", sans-serif;
     margin-top: 20px;
-   }
+}
 
 .activityDisplay {
     border-style: solid;
@@ -67,7 +95,7 @@ header {
 
 .field-body,
 button {
-    margin: 5px;
+    margin: 0px;
 }
 
 #cuisine,
@@ -80,8 +108,8 @@ button {
     width: 650px;
     margin-top: 25px;
     margin-bottom: 25px;
-  }
- 
-  #map {
+}
+
+#map {
     height: 100%;
-  }
+}

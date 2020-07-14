@@ -15,93 +15,84 @@
     <div class="wrapper">
         <section class="hero   is-black ">
             <div class="container main-content">
-                <figure class="image is-128x128">
-                    <img src="assets/procasti-white-letters.png">
-                </figure>
+
+                <img class="logo" src="assets/procasti-white-letters.png">
+
             </div>
         </section>
-        <div id="left">
-            <div id="nav-contain">
+
+        <div id="nav-contain">
             <nav class="navbar is-black" role="navigation" aria-label="main navigation">
                 <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                 </a>
+            </nav>
+        </div>
+        <div class="main">
+            <div class="card">
+                <form class="form-control">
+                    <input type="text" placeholder="Enter City or ZIP" class="field-body" id="cityfield" />
+                </form>
+                <button type="button" class="button is-warning" id="findcity">Search</button>
+                <button type="button" class="button is-warning" id="centermap">Center Map</button>
+                <br>
+                <label for="cuisine">Choose a restaurant type</label>
+                <select name="foodtype" id="cuisine">
+                    <option value="bbq">BBQ</option>
+                    <option value="burgers">Burgers</option>
+                    <option value="chinese">Chinese</option>
+                    <option value="deli">Deli</option>
+                    <option value="italian">Italian</option>
+                    <option value="mexican">Mexican</option>
+                    <option value="seafood">Seafood</option>
+                    <option value="sushi">Sushi</option>
+                    <option value="thai">Thai</option>
+                </select>
+                <br>
+                <label for="searchradius">Select search radius (miles)</label>
+                <select name="radius" id="searchradius">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                    <option value="30">30</option>
+                </select>
+                <br>
+                <button type="button" class="button is-warning" id="findrestaurant">Find a date</button>
             </div>
+            <div class="mapcontain column" id="right">
+                <div id="map"></div>
+            </div>
+
+
         </div>
-        <form>
-            <input type="text" placeholder="Enter City or ZIP" class="field-body" id="cityfield" />
-        </form>
-        <button type="button" class="button is-info" id="findcity">Search</button>
-        <button type="button" class="button is-info" id="centermap">Center Map</button>
-        <br>
-        <label for="cuisine">Choose a restaurant type</label>
-        <select name="foodtype" id="cuisine">
-            <option value="bbq">BBQ</option>
-            <option value="burgers">Burgers</option>
-            <option value="chinese">Chinese</option>
-            <option value="deli">Deli</option>
-            <option value="italian">Italian</option>
-            <option value="mexican">Mexican</option>
-            <option value="seafood">Seafood</option>
-            <option value="sushi">Sushi</option>
-            <option value="thai">Thai</option>
-      </select>
-      <br>
-        <label for="searchradius">Select search radius (miles)</label>
-        <select name="radius" id="searchradius">
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="15">15</option>
-            <option value="20">20</option>
-            <option value="25">25</option>
-            <option value="30">30</option>
-        </select>
-        <br>
-        <button type="button" class="button is-info" id="findrestaurant">Find a restaruant</button>
-        <div class="mapcontain column" id="right">
-            <div id="map"></div>
-        </div>
-    </div>
-    </div>
-    </nav>
-    </div>
-    <!-- <div>
-        <div>
-            <section class>
-                <div class="container">
-                    <figure class="image is-full-height ">
-                        <img src="assets/prague-at-night-1080x720.jpg">
-                    </figure>
+        <!-- above ends main wrapper  -->
+        <footer class="footer has-background-black">
+            <div class="content has-text-centered">
+                <p>
+                    <strong>Procasti-Dater</strong> by <a href=https://github.com/purilisa/Dinner-And-A-Movie>Alvin, Lisa, Patrick & Marcia</a>. All rights reserved.
+                </p>
+            </div>
+        </footer>
+        <section>
+            <footer class="hero-foot has-background-black">
+                <div class="content has-text-centered">
+                    <p>
+                        <strong>Procasti-Dater</strong> by <a href=https://github.com/purilisa/Dinner-And-A-Movie>Alvin, Lisa, Patrick & Marcia</a>. All rights reserved.
+                    </p>
                 </div>
-            </section>
-        </div>
-    </div> -->
-    </div>
-    <footer class="footer has-background-black">
-        <div class="content has-text-centered">
-            <p>
-                <strong>Procasti-Dater</strong> by <a href=https://github.com/purilisa/Dinner-And-A-Movie>Alvin, Lisa, Patrick & Marcia</a>. All rights reserved.
-            </p>
-        </div>
-    </footer>
-    <section>
-    <footer class="hero-foot has-background-black">
-      <div class="content has-text-centered">
-        <p>
-          <strong>Procasti-Dater</strong> by <a href=https://github.com/purilisa/Dinner-And-A-Movie>Alvin, Lisa, Patrick & Marcia</a>. All rights reserved.
-        </p>
-      </div>
-    </footer> 
-</section>
-    <!-- Added link to the jQuery Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <!-- link to font awesome -->
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFP0tqM6o9f2FoX3gInG3rF-5nGBZiKc8&libraries=places"></script>
-    <script src="./script.js"></script>
+            </footer>
+        </section>
+        <!-- Added link to the jQuery Library -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <!-- link to font awesome -->
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFP0tqM6o9f2FoX3gInG3rF-5nGBZiKc8&libraries=places"></script>
+        <script src="./script.js"></script>
 </body>
 
 </html>
