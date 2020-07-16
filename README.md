@@ -14,6 +14,7 @@ To use procasti-Dater, follow these steps.
 4. Select your entertainment.
 5. Call up your date and let them know what time to be ready! 
 
+<img src="https://github.com/purilisa/Dinner-And-A-Movie/blob/master/assets/How%20to%20use%20the%20site%20.jpg?raw=true" height="400" width="60%">
 
 ## Technologies
 
